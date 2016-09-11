@@ -43,6 +43,8 @@ public class YelpAPI {
     private static final String TOKEN = "8Gxx-2prSHSFF0sktg4K_Zrqk53NR4OY";
     private static final String TOKEN_SECRET = "5NVI58odZOS4dyvvTEhklkyadBs";
 
+    public static String result = "";
+
     OAuthService service;
     Token accessToken;
 
@@ -124,7 +126,7 @@ public class YelpAPI {
      * @param yelpApi <tt>YelpAPI</tt> service instance
      * @param yelpApiCli <tt>YelpAPICLI</tt> command line arguments
      */
-    private static void queryAPI(YelpAPI yelpApi, YelpAPICLI yelpApiCli) {
+    private static String queryAPI(YelpAPI yelpApi, YelpAPICLI yelpApiCli) {
         String searchResponseJSON =
                 yelpApi.searchForBusinessesByLocation(yelpApiCli.term, yelpApiCli.location);
 
@@ -144,8 +146,7 @@ public class YelpAPI {
 
             JSONParser jsonParser = new JSONParser();
             JSONObject json = (JSONObject) jsonParser.parse(businessResponseJSON);
-            System.out.println("Average Rating:");
-            //System.out.println(json.get("rating"));
+            result+="Average Rating" + json.get("rating");
             //JSONObject jsonObj = new JSONObject(businessResponseJSON);
             //System.out.println(String.format("Result for business \"%s\" found:", firstBusinessID));
             //JSONArray entries = (JSONArray) json;
@@ -154,8 +155,7 @@ public class YelpAPI {
             //System.out.println(reviews.toString());
             for (Object review : reviews) {
                 JSONObject r = (JSONObject) review;
-                System.out.println("Review Excerpt:");
-                System.out.println(r.get("excerpt"));
+                result += "Review Excerpt:" + r.get("excerpt");
             }
 
         } catch (ParseException pe) {
@@ -163,7 +163,7 @@ public class YelpAPI {
             System.out.println(searchResponseJSON);
             System.exit(1);
         }
-
+        return result;
 
     }
 
@@ -183,11 +183,11 @@ public class YelpAPI {
      * <p>
      * After entering your OAuth credentials, execute <tt><b>run.sh</b></tt> to run this example.
      */
-    public static void main(String[] args) {
+    public static String main(String[] args) {
         YelpAPICLI yelpApiCli = new YelpAPICLI();
         new JCommander(yelpApiCli, args);
 
         YelpAPI yelpApi = new YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
-        queryAPI(yelpApi, yelpApiCli);
+        return queryAPI(yelpApi, yelpApiCli);
     }
 }

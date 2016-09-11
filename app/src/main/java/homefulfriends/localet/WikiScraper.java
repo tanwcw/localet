@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class WikiScraper {
 //run using java -cp .:/home/celesteanglm/Documents/techcrunch/jsoup-1.9.2.jar WikiScraper Golden_Gate_Bridge history
 
-    public static void main(String[] args) {
+    public static String main(String[] args) {
 
         Document doc;
         ArrayList<String> titles = new ArrayList<String>();
@@ -55,17 +55,19 @@ public class WikiScraper {
 
             if (detail.equals("history")) {
                 ArrayList<String> keywords = new ArrayList<>(Arrays.asList("Designer", "Opened"));
-                for (String word:keywords) {
+                for (String word : keywords) {
                     System.out.println(word);
                     int index = titles.indexOf(word);
                     System.out.println(info.get(index));
+                    String result = word + " " + info.get(index);
+                    return result;
                 }
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return "";
     }
 
 }
