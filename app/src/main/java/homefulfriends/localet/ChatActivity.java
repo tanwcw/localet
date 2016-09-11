@@ -3,6 +3,8 @@ package homefulfriends.localet;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -159,5 +161,9 @@ public class ChatActivity extends Activity {
                 new IBM().execute(input);
             }
         });
+        setContentView(R.layout.activity_result);
+
+        Intent launchactivity= new Intent(ChatActivity.this,MapActivity.class);
+        startActivity(launchactivity);
     }
 }
