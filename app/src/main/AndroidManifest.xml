@@ -12,16 +12,12 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.NoTitleBar">
         <activity android:name=".MainActivity" />
-
         <activity android:name=".StartActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
-
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".StartActivity" />
-        <activity android:name=".ResultActivity"></activity>
         <activity android:name=".ChatActivity" />
     </application>
 
