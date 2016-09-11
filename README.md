@@ -29,6 +29,6 @@ Most of the magic came from the follwing APIs:
 * IBM Watson
 * Yelp
 
-...and with some fun by the Five Homeful Friends :smile:
+...and with some fun by the **Five Homeful Friends** :smile:
 
 
