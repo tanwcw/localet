@@ -16,9 +16,9 @@ public class VisualRecognitionExample {
     service.setApiKey("6725ea55a750127ed2401d4fcfdbc9cea62787f3");
 
     System.out.println("Classify an image");
-    ClassifyImagesOptions options = new ClassifyImagesOptions.Builder()
-            .images(new File("../res/drawable/icon.png"))
-            .build();
+//    ClassifyImagesOptions options = new ClassifyImagesOptions.Builder()
+//            .images(new File("../res/drawable/icon.png"))
+//            .build();
     VisualClassification result = service.classify(options).execute();
     System.out.println(result);
 //
