@@ -55,14 +55,14 @@ public class ChatActivity extends Activity {
                 JSONArray entities = result.getJSONArray("entities");
                 String intent = "";
                 String value = "";
-                for (int i = 0; i< intents.length(); i++){
+                for (int i = 0; i < intents.length(); i++) {
                     intent = intents.getJSONObject(i).getString("intent");
                 }
-                for (int i = 0; i< entities.length(); i++){
+                for (int i = 0; i < entities.length(); i++) {
                     value = entities.getJSONObject(i).getString("value");
                 }
 
-                if (intent.equals("others")){
+                if (intent.equals("others")) {
                     //call up mapactivity
                 } else {
                     //
@@ -72,6 +72,7 @@ public class ChatActivity extends Activity {
                 return "Error";
             }
         }
+
 
         protected void onPostExecute(String result) {
             TextView showText = (TextView) findViewById(R.id.textView);
