@@ -15,7 +15,7 @@ public class StartActivity extends Activity {
             public void run() {
                 try {
                     Thread.sleep(3000);
-                    Intent i = new Intent(getApplicationContext(), ChatActivity.class);
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block

@@ -2,28 +2,12 @@ package homefulfriends.localet;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
-
-import com.mapbox.mapboxsdk.annotations.MarkerOptions;
-import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
-import com.mapbox.mapboxsdk.geometry.LatLng;
-import com.mapquest.mapping.maps.OnMapReadyCallback;
-import com.mapquest.mapping.maps.MapboxMap;
-import com.mapquest.mapping.maps.MapView;
 
 import java.io.File;
 
@@ -66,8 +50,8 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        String path = "sdcard/localet/cam_image.jpg";
-        imageView.setImageDrawable(Drawable.createFromPath(path));
+        //String path = "sdcard/localet/cam_image.jpg";
+       // imageView.setImageDrawable(Drawable.createFromPath(path));
         Intent launchactivity= new Intent(MainActivity.this, ChatActivity.class);
         startActivity(launchactivity);
     }

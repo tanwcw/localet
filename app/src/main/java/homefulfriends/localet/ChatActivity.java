@@ -1,16 +1,14 @@
 package homefulfriends.localet;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
@@ -26,7 +24,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ChatActivity extends Activity {
-
+    TextView resultView;
+    public static String res;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -107,6 +106,7 @@ public class ChatActivity extends Activity {
                 JSONArray entities = result.getJSONArray("entities");
                 String intent = "";
                 String value = "";
+
                 for (int i = 0; i < intents.length(); i++) {
                     intent = intents.getJSONObject(i).getString("intent");
                 }
@@ -116,15 +116,18 @@ public class ChatActivity extends Activity {
 
                 if (intent.equals("others")) {
                     //call up mapactivity
+                    Intent i = new Intent(getApplicationContext(), MapActivity.class);
+                    startActivity(i);
                 } else {
                     if (intent.equals("review")) {
                         //yelp
                         String[] lol = {};
-                        YelpAPI.main(lol);
+                        res = YelpAPI.main(lol);
+
                     } else {
                         //history
                         String[] lol = {"Golden_Gate_Bridge", "history" };
-                        WikiScraper.main(lol);
+                        res = WikiScraper.main(lol);
                     }
                 }
             } catch (JSONException e) {
@@ -137,11 +140,10 @@ public class ChatActivity extends Activity {
 
         protected void onPostExecute(String result) {
             TextView showText = (TextView) findViewById(R.id.textView);
+            resultView.setText(res);
             showText.setText(result);
         }
     }
-
-    RelativeLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +152,7 @@ public class ChatActivity extends Activity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        resultView = (TextView) findViewById(R.id.result);
     }
 
     public void onClick(View v) {
@@ -161,7 +164,6 @@ public class ChatActivity extends Activity {
                 new IBM().execute(input);
             }
         });
-        setContentView(R.layout.activity_result);
 
         Intent launchactivity= new Intent(ChatActivity.this,MapActivity.class);
         startActivity(launchactivity);

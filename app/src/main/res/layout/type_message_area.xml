@@ -11,10 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textColorHint="#CFD8DC"
-        android:textColor="#CFD8DC"
+        android:textColor="#000"
         android:hint="Ask something!"
-        android:id="@+id/editText"
-        android:onClick="onClick" />
+        android:id="@+id/editText" />
 
     <ImageView
         android:layout_width="match_parent"
