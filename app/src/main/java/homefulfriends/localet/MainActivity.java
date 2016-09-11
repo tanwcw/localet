@@ -13,6 +13,7 @@ import com.mapquest.mapping.maps.MapView;
 public class MainActivity extends Activity {
     private final LatLng SAN_FRAN = new LatLng(37.775643, -122.386743);
     private final LatLng COLT = new LatLng(37.802378, -122.405823);
+    private final LatLng GOLDEN = new LatLng(37.819929, -122.478255);
     private MapboxMap mMapboxMap;
     private MapView mMapView;
 
@@ -29,9 +30,10 @@ public class MainActivity extends Activity {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
                 mMapboxMap = mapboxMap;
-                mMapboxMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SAN_FRAN, 15));
+                mMapboxMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GOLDEN, 15));
                 addMarker(mMapboxMap);
                 addMarker2(mMapboxMap);
+                addMarker3(mMapboxMap);
             }
         });
     }
@@ -49,6 +51,14 @@ public class MainActivity extends Activity {
         markerOptions.position(COLT);
         markerOptions.title("Colt Tower");
         markerOptions.snippet("Colt Tower");
+        mapboxMap.addMarker(markerOptions);
+    }
+
+    private void addMarker3(MapboxMap mapboxMap) {
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(GOLDEN);
+        markerOptions.title("Golden Gate Bridge");
+        markerOptions.snippet("Is it really golden?");
         mapboxMap.addMarker(markerOptions);
     }
 }
