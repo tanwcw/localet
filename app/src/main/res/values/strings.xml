@@ -1,3 +1,94 @@
 <resources>
     <string name="app_name">localet</string>
+
+    <!--Login activity string values -->
+    <string name="login_username_text">Username:</string>
+    <string name="login_password_text">Password:</string>
+    <string name="login_password_edit_text_view">Password</string>
+    <string name="login_button_text_view">Log in</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="logged_in_text_view">Logged in as ... . Sign out?</string>
+    <string name="sign_up_link">Don\'t have an account yet? Click here to sign up!</string>
+    <string name="back_main_page_text_view">Back to main page</string>
+    <string name="gps_internet_enable_text_view">Please ensure your internet connection exists and location service is enabled</string>
+    <string name="about_us_text_view">About us</string>
+    <!--End of login activity string values -->
+
+    <!--Top buttons string values -->
+    <string name="nearby_button_text_view">Nearby</string>
+    <string name="chat_button_text_view">Chat</string>
+    <string name="settings_button_text_view">Settings</string>
+
+    <!--Nearby activity string values -->
+    <string name="no_nearby_text_view">Aww... There\'s no people near you, try again later</string>
+    <string name="posted_text_view">You posted: ...</string>
+    <string name="nearby_instruction">Click mingle to create post and find users nearby</string>
+    <string name="nearby_refresh_button_text_view">Refresh</string>
+    <!-- End of nearby activity string values -->
+
+    <!--Main activity string values -->
+    <string name="title_activity_messaging">MessagingActivity</string>
+    <string name="no_previous_chat_text_view">You don\'t have any chat history</string>
+    <!-- End of main activity string values -->
+
+    <!-- Messaging activity string values -->
+    <string name="message_elipses">Message...</string>
+    <string name="title_activity_nearby">NearbyActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <!-- End of messaging activity string values -->
+
+    <!-- Settings activity string values -->
+    <string name="update_profile_text_view">Update profile</string>
+    <string name="logout_button_text_view">Logout</string>
+    <string name="edit_search_button_text_view">Edit Search Settings</string>
+    <string name="title_activity_edit_search">EditSearchActivity</string>
+    <!-- End of settings activity string values -->
+
+    <!-- Edit Search Activity string values -->
+    <string name="search_distance">Search Distance</string>
+    <string name="number_of_results">Number of Results</string>
+    <string name="edit_search_confirm_button_text_view">Confirm</string>
+    <string name="title_activity_update_profile">UpdateProfileActivity</string>
+    <!-- End of edit search activity string values -->
+
+    <!-- Update Profile Activity string values -->
+    <string name="name_text_view">Name</string>
+    <string name="date_of_birth_text_view">Date of Birth</string>
+    <string name="nationality_text_view">Nationality</string>
+    <string name="set_profile_picture_button_text_view">Set profile picture</string>
+    <string name="gender_text_view">Gender</string>
+    <string name="male_radio_text_view">Male</string>
+    <string name="female_radio_text_view">Female</string>
+    <string name="other_gender_radio_text_view">Others</string>
+    <string name="description_text_view">Description</string>
+    <string name="save_profile_button_text_view">Save</string>
+    <string name="date_input_hint">DD/MM/YYYY</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <!-- End of update profile activity string values -->
+
+    <!-- Sign up Activity string values -->
+    <string name="sign_up_username_text_view">Username</string>
+    <string name="sign_up_password_text_view">Password</string>
+    <string name="sign_up_confirm_password_text_view">Confirm Password</string>
+    <string name="sign_up_button_text_view">Sign up</string>
+    <string name="sign_up_logged_in_as">You\'ve already signed in. You can\'t sign up again. Click to return to main page.</string>
+    <string name="sign_up_logout_text_view">Log out</string>
+    <!-- End of sign up activity string values -->
+
+    <!-- View Profile Activity string values -->
+    <string name="title_activity_view_profile">ViewProfileActivity</string>
+    <string name="view_profile_chat_button_text_view">Chat</string>
+    <string name="target_name_text_view">No Name Available</string>
+    <string name="target_gender_text_view">No Gender Available</string>
+    <string name="target_date_of_birth_text_view">No Date Of Birth Available</string>
+    <string name="target_nationality_text_view">No Nationality Available</string>
+    <string name="target_description_text_view">No Description Available</string>
+    <!-- End of view profile activity string values -->
+
+    <!-- Post Item string values -->
+    <string name="post_item_text_view">Create post to make yourself discoverable</string>
+    <string name="post_item_hint">What\'s on your mind</string>
+    <string name="character_count_placeholder">0/30</string>
+    <string name="title_activity_about_us">AboutUsActivity</string>
 </resources>
