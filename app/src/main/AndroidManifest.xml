@@ -21,7 +21,18 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".ChatActivity" />
+        <activity android:name=".ChatActivity">
+            <intent-filter>
+                <action android:name="homefulfriends.localet.ChatActivity" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MapActivity">
+            <intent-filter>
+                <action android:name="homefulfriends.localet.MapActivity" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

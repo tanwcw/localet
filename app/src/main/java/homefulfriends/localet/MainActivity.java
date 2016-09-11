@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
     Button button;
     ImageView imageView;
     static final int CAM_REQUEST = 1;
+    private boolean isCameraClicked = false;
 
 
     @Override
@@ -51,6 +52,7 @@ public class MainActivity extends Activity {
                 startActivityForResult(camera_intent, CAM_REQUEST);
             }
         });
+
     }
 
     private File getFile(){
@@ -66,6 +68,8 @@ public class MainActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         String path = "sdcard/localet/cam_image.jpg";
         imageView.setImageDrawable(Drawable.createFromPath(path));
+        Intent launchactivity= new Intent(MainActivity.this,ChatActivity.class);
+        startActivity(launchactivity);
     }
 
 }

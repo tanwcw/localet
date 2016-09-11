@@ -9,5 +9,8 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        System.out.println("hello world");
+        System.out.println("whwywhwyw");
     }
 }
