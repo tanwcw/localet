@@ -1,6 +1,13 @@
 package homefulfriends.localet;
 
+import android.content.res.AssetManager;
+import android.media.Image;
+import android.net.Uri;
+
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifyImagesOptions;
@@ -16,9 +23,20 @@ public class VisualRecognitionExample {
     service.setApiKey("6725ea55a750127ed2401d4fcfdbc9cea62787f3");
 
     System.out.println("Classify an image");
-//    ClassifyImagesOptions options = new ClassifyImagesOptions.Builder()
-//            .images(new File("../res/drawable/icon.png"))
-//            .build();
+    //Uri path = Uri.parse("android.resource://homefulfriends.localet/" + R.drawable.icon);
+//    URL url = new URL("https://upload.wikimedia.org/wikipedia/commons/5/54/Golden_Gate_Bridge_0002.jpg");
+////    Image image = ImageIO.read(url);
+//    FileUtils.copyURLToFile(URL, File);
+    AssetManager assetManager = getAssets();
+    InputStream is;
+    try {
+      is = assetManager.open("icon.png");
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    ClassifyImagesOptions options = new ClassifyImagesOptions.Builder()
+            .images(new File(is))
+            .build();
     VisualClassification result = service.classify(options).execute();
     System.out.println(result);
 //
