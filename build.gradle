@@ -29,6 +29,4 @@ dependencies {
     compile 'co.devcenter.square:android-ui-library:0.1'
     compile files('libs/java-sdk-3.3.1-jar-with-dependencies.jar')
     compile files('libs/jsoup-1.9.2.jar')
-
-
 }

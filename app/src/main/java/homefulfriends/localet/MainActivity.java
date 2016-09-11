@@ -2,6 +2,7 @@ package homefulfriends.localet;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -44,14 +45,14 @@ public class MainActivity extends Activity {
         if(!folder.exists()){
             folder.mkdir();
         }
-        File image_file = new File(folder, "can_image.jpg");
+        File image_file = new File(folder, "cam_image.jpg");
         return image_file;
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        //String path = "sdcard/localet/cam_image.jpg";
-       // imageView.setImageDrawable(Drawable.createFromPath(path));
+        String path = "sdcard/localet/cam_image.jpg";
+        imageView.setImageDrawable(Drawable.createFromPath(path));
         Intent launchactivity= new Intent(MainActivity.this, ChatActivity.class);
         startActivity(launchactivity);
     }
