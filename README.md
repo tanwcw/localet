@@ -17,9 +17,9 @@ With **Localet**, you'll be able to **get the name** of those landmarks by **sna
 
 Currently, Localet will be able to answer questions of the landmark that is related to its:
 
-*History *("Tell me about it's history")*
-*Reviews *("Give me some reviews")*
-*Other popular attractions around it *("Where would you recommend me to go?")*
+* History *("Tell me about it's history")*
+* Reviews *("Give me some reviews")*
+* Other popular attractions around it *("Where would you recommend me to go?")*
 
 ###What's the magic behind it?
 
