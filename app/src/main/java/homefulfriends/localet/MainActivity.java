@@ -1,6 +1,8 @@
 package homefulfriends.localet;
 
 import android.app.Activity;
+import android.hardware.camera2.CameraManager;
+import android.content.Context;
 import android.os.Bundle;
 
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
@@ -11,11 +13,7 @@ import com.mapquest.mapping.maps.MapboxMap;
 import com.mapquest.mapping.maps.MapView;
 
 public class MainActivity extends Activity {
-    private final LatLng SAN_FRAN = new LatLng(37.775643, -122.386743);
-    private final LatLng COLT = new LatLng(37.802378, -122.405823);
-    private final LatLng GOLDEN = new LatLng(37.819929, -122.478255);
-    private MapboxMap mMapboxMap;
-    private MapView mMapView;
+    CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +28,7 @@ public class MainActivity extends Activity {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
                 mMapboxMap = mapboxMap;
-                mMapboxMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GOLDEN, 15));
+                mMapboxMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GOLDEN, 12));
                 addMarker(mMapboxMap);
                 addMarker2(mMapboxMap);
                 addMarker3(mMapboxMap);
@@ -48,9 +46,9 @@ public class MainActivity extends Activity {
 
     private void addMarker2(MapboxMap mapboxMap) {
         MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(COLT);
-        markerOptions.title("Colt Tower");
-        markerOptions.snippet("Colt Tower");
+        markerOptions.position(COIT);
+        markerOptions.title("Coit Tower");
+        markerOptions.snippet("Coit Tower");
         mapboxMap.addMarker(markerOptions);
     }
 
