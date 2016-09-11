@@ -1,9 +1,22 @@
 package homefulfriends.localet;
 
 import android.app.Activity;
-import android.hardware.camera2.CameraManager;
-import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -12,8 +25,13 @@ import com.mapquest.mapping.maps.OnMapReadyCallback;
 import com.mapquest.mapping.maps.MapboxMap;
 import com.mapquest.mapping.maps.MapView;
 
+import java.io.File;
+
 public class MainActivity extends Activity {
-    CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+    Button button;
+    ImageView imageView;
+    static final int CAM_REQUEST = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,42 +39,33 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
 
-        mMapView = (MapView) findViewById(R.id.mapquestMapView);
-        mMapView.onCreate(savedInstanceState);
 
-        mMapView.getMapAsync(new OnMapReadyCallback() {
+        button  = (Button) findViewById(R.id.myButton);
+        imageView = (ImageView) findViewById(R.id.imageView1);
+        button.setOnClickListener (new View.OnClickListener(){
             @Override
-            public void onMapReady(MapboxMap mapboxMap) {
-                mMapboxMap = mapboxMap;
-                mMapboxMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GOLDEN, 12));
-                addMarker(mMapboxMap);
-                addMarker2(mMapboxMap);
-                addMarker3(mMapboxMap);
+            public void onClick(View v){
+                Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                File file = getFile();
+                camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+                startActivityForResult(camera_intent, CAM_REQUEST);
             }
         });
     }
 
-    private void addMarker(MapboxMap mapboxMap) {
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(SAN_FRAN);
-        markerOptions.title("Place of rainbows and unicorns");
-        markerOptions.snippet("Welcome to SF DISRUPT!");
-        mapboxMap.addMarker(markerOptions);
+    private File getFile(){
+        File folder = new File("sdcard/localet_photo");
+        if(!folder.exists()){
+            folder.mkdir();
+        }
+        File image_file = new File(folder, "can_image.jpg");
+        return image_file;
     }
 
-    private void addMarker2(MapboxMap mapboxMap) {
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(COIT);
-        markerOptions.title("Coit Tower");
-        markerOptions.snippet("Coit Tower");
-        mapboxMap.addMarker(markerOptions);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        String path = "sdcard/localet/cam_image.jpg";
+        imageView.setImageDrawable(Drawable.createFromPath(path));
     }
 
-    private void addMarker3(MapboxMap mapboxMap) {
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(GOLDEN);
-        markerOptions.title("Golden Gate Bridge");
-        markerOptions.snippet("Is it really golden?");
-        mapboxMap.addMarker(markerOptions);
-    }
 }

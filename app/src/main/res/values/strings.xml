@@ -1,9 +1,5 @@
 <resources>
     <string name="app_name">localet</string>
-    <string name="featureServiceURL">http://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0</string>
-    <string name="query_us">COUNTRY = US</string>
-    <string name="query_ca">COUNTRY = CANADA</string>
-    <string name="query_fr">COUNTRY = FRANCE</string>
-    <string name="query_au">COUNTRY = AUSTRALIA</string>
-    <string name="query_br">COUNTRY = BRAZIL</string>
+    <string name="action_settings">Settings</string>
+    <string name="openCamera">Open Camera</string>
 </resources>
