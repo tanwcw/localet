@@ -15,7 +15,7 @@ allprojects {
     repositories {
         jcenter()
         maven {
-            url 'https://esri.bintray.com/arcgis'
+            url 'http://artifactory.cloud.mapquest.com/artifactory/et-android-binaries'
         }
     }
 }
