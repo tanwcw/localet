@@ -1,6 +1,6 @@
 # Localet
-###### Unknown landmarks. Never again.
-
+###### Travel. Capture. Discover.
+ 
 ### What's this?
 
 *'What's that landmark? Let's google it!'*
